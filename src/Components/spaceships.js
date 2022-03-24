@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import Shipslist from './shipsList';
 
 
-const Spaceships = () => {
+const Spaceships = ({ onClickShipName }) => {
     const [ships, setShips] = useState([]);
+    const navigate = useNavigate();
     
     useEffect(() => {
         axios.get('https://swapi.dev/api/starships/')
@@ -13,16 +16,14 @@ const Spaceships = () => {
         })
     }, []);
 
+    const handleClickName = (ship) => {
+        onClickShipName(ship);
+        navigate("/detail");
+    }
+
     return (
         <>
-            {ships.map((ship) => {
-                return (
-                    <>
-                        <p>NAME -> {ship.name}</p> 
-                        <p>MODEL -> {ship.model}</p>    
-                    </>
-                )
-            })}
+            <Shipslist ships={ships} ClickedName={handleClickName}></Shipslist>
         </>
     )
 }
