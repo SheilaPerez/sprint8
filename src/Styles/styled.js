@@ -15,3 +15,7 @@ export const Model = styled.p`
     color: #557B83;
     display: inline-block;
 `
+export const ImageShip = styled.img`
+    width: 200px;
+    height: 170px;
+`
