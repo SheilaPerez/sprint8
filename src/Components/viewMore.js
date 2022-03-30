@@ -1,8 +1,10 @@
-const ViewMore = ({handleClickNext}) => {
+import {ViewMoreBtn, DivView} from '../Styles/styled'
+
+const ViewMore = ({ handleClickNext }) => {
     return (
-        <>
-            <button type="button" onClick={handleClickNext}>view more</button>
-        </>
+        <DivView>
+            <ViewMoreBtn type="button" onClick={handleClickNext}>view more</ViewMoreBtn>
+        </DivView>
     )
 }
 

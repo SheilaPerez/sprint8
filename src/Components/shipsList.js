@@ -1,4 +1,4 @@
-import { Name,NameModel, Model } from '../Styles/styled';
+import { Name, Model, Div, DivBoxName } from '../Styles/styled';
 
 const ShipList = ({ ships, ClickedName }) => {
 
@@ -7,16 +7,16 @@ const ShipList = ({ ships, ClickedName }) => {
     }
 
     return (
-        < >
+        <Div>
             {ships.map((ship, index) => {
                 return (
-                    <div>  
-                        <Name onClick={() => handleClickShipName(ship)}>{index+1} Name: <NameModel>{ship.name}</NameModel></Name> 
-                        <Model>Model:<NameModel>{ship.model}</NameModel></Model>    
-                    </div>
+                    <DivBoxName>  
+                        <Name onClick={() => handleClickShipName(ship)}>{ship.name}</Name>
+                        <Model>{ship.model}</Model>    
+                    </DivBoxName>
                 )
             })}
-        </>
+        </Div>
     )
 }
 
