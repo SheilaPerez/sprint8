@@ -1,19 +1,23 @@
 import { useEffect, useState } from 'react';
 import { DivCount, Input, Count, AccountBtn } from '../Styles/styled';
+import { useNavigate } from 'react-router-dom';
 
 const Signin = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [loginClicked, setLoginClicked] = useState(false);
+    const navigate = useNavigate();
 
     useEffect(() => {
-        const userSession = { name, email, password };
-        localStorage.setItem('user', JSON.stringify(userSession));
+        if (loginClicked) {
+            const userSession = { name, email, password };
+            localStorage.setItem('user', JSON.stringify(userSession));
+            navigate("/login");
+        }  
     }, [loginClicked])
     
     const handleClickLogIn = () => {
-        console.log('entra')
         setLoginClicked(true)
     }
 
